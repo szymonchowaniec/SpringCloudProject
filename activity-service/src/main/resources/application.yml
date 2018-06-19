@@ -1,0 +1,7 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://eureka-primary:8762/eureka
+server:
+  port: 8010
+activities: to run a marathon, for cookies, obejrzyj zwycięstwo Polski z Senagalem,

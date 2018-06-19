@@ -1,0 +1,7 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://eureka-primary:8762/eureka
+server:
+  port: 8080
+fortunes: It's a good day for a cookie!, Take a nap!, Nie dopisa³em przecinka na koñcu,
