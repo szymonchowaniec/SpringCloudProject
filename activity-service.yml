@@ -5,8 +5,8 @@ eureka:
 ---
 spring:
  profiles: lazy
-activities: to grab a bear,to eat a cookie,to take a nap
+activities: jestem z activity lazy,alto eat a cookie,alto take a nap
 ---
 spring:
  profiles: crazy
-activities: to run a marathon, to go hiking
+activities: jestem z activity crazy, acto run a marathon, acto go hiking

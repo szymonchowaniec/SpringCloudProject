@@ -1,7 +1,20 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/,http://eureka-primary:8762/eureka
+---
+spring:
+  profiles: polite
+  application:
+    name: decision-service
+  cloud:
+    config:
+      uri: http://localhost:8888
 server:
   port: 8000
-decisions: It’s a good idea, It’s a bad day, Is' the best day of my live,
+---
+spring:
+  profiles: rough
+  application:
+    name: decision-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+server:
+  port: 8001

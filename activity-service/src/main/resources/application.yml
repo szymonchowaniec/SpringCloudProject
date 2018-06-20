@@ -1,7 +1,20 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/,http://eureka-primary:8762/eureka
+---
+spring:
+  profiles: lazy
+  application:
+    name: activity-service
+  cloud:
+    config:
+      uri: http://localhost:8888
 server:
   port: 8010
-activities: to run a marathon, for cookies, obejrzyj zwycięstwo Polski z Senagalem,
+---
+spring:
+  profiles: crazy
+  application:
+    name: activity-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+server:
+  port: 8011

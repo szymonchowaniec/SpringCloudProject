@@ -1,0 +1,12 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-primary:8761/eureka,http://eureka-secondary:8762/eureka
+---
+spring:
+  profiles: polite
+decisions: jestem z decision polite, dpIt's a good day,dpGreat time,dpPerfect time
+---
+spring:
+  profiles: rough
+decisions: jestem z decision rough, drLast time,drNo other chance
