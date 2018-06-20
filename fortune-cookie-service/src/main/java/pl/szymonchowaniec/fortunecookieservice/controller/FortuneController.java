@@ -9,26 +9,24 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import pl.szymonchowaniec.fortunecookieservice.feign.ActivityClient;
+import pl.szymonchowaniec.fortunecookieservice.feign.DecisionClient;
 
 
 @RestController
 public class FortuneController {
 
     @Autowired
-    @Qualifier("ribbonRestTemplate")
-    RestTemplate ribbonRestTemplate;
+    private ActivityClient activityClient;
+    @Autowired
+    private DecisionClient decisionClient;
 
     @GetMapping(value = "/fortune")
     public Fortune fortune(){
-        String fortune = getDataFromService("DECISION-SERVICE")+" "+getDataFromService("ACTIVITY-SERVICE");
+        String fortune = convertJSONResponseToSentence(decisionClient.getResponse())+" "+ convertJSONResponseToSentence(activityClient.getResponse());
         return new Fortune(fortune);
     }
 
-public String getDataFromService(String service){
-
-            String responseInJSON = (ribbonRestTemplate).getForObject("http://"+service,String.class);
-            return convertJSONResponseToSentence(responseInJSON);
-}
 
 private String convertJSONResponseToSentence(String responseInJSON){
     JSONArray dataFromService = JsonPath.read(responseInJSON,"$..*");

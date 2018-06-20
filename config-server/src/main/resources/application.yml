@@ -3,7 +3,7 @@ spring:
     config:
       server:
         git:
-          uri: file:///Users/Student/Desktop/szkolenie/mojeProjekty
+          uri: https://github.com/szymonchowaniec/SpringCloudProject.git
   application:
     name: config-server
 server:
